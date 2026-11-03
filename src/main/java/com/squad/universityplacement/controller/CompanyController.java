@@ -1,6 +1,12 @@
 package com.squad.universityplacement.controller;
 
+import com.squad.universityplacement.api.CompanyRequest;
 import com.squad.universityplacement.entity.CompanyEntity;
+import com.squad.universityplacement.service.CompanyService;
+
+import jakarta.validation.Valid;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,4 +42,3 @@ public class CompanyController {
         return companyService.getCompany(companyId);
     }
 }
-

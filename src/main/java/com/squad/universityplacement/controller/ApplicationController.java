@@ -1,7 +1,17 @@
 package com.squad.universityplacement.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.squad.universityplacement.api.ApplicationDetail;
+import com.squad.universityplacement.api.ApplicationRequest;
+import com.squad.universityplacement.api.ApplicationResponse;
+import com.squad.universityplacement.api.StatusUpdateRequest;
+import com.squad.universityplacement.api.StatusUpdateResponse;
+import com.squad.universityplacement.service.ApplicationService;
+
+import jakarta.validation.Valid;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/applications")
