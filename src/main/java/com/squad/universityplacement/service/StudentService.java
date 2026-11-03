@@ -1,12 +1,12 @@
-package com.university.placement.service;
+package com.squad.universityplacement.service;
 
-import com.university.placement.exception.DuplicateResourceException;
-import com.university.placement.exception.EligibilityException;
-import com.university.placement.exception.ResourceNotFoundException;
-import com.university.placement.exception.ValidationException;
-import com.university.placement.entity.PlacementStatus;
-import com.university.placement.entity.StudentEntity;
-import com.university.placement.repository.StudentRepository;
+import com.squad.universityplacement.exception.DuplicateResourceException;
+import com.squad.universityplacement.exception.EligibilityException;
+import com.squad.universityplacement.exception.ResourceNotFoundException;
+import com.squad.universityplacement.exception.ValidationException;
+import com.squad.universityplacement.entity.PlacementStatus;
+import com.squad.universityplacement.entity.StudentEntity;
+import com.squad.universityplacement.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

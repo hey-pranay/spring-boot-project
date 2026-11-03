@@ -1,10 +1,25 @@
 package com.squad.universityplacement.controller;
 
+import com.squad.universityplacement.api.ApiError;
+import com.squad.universityplacement.exception.DuplicateResourceException;
+import com.squad.universityplacement.exception.EligibilityException;
+import com.squad.universityplacement.exception.InvalidStatusTransitionException;
+import com.squad.universityplacement.exception.PlacementException;
+import com.squad.universityplacement.exception.ResourceNotFoundException;
 
+import jakarta.validation.ConstraintViolationException;
+
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.time.Instant;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {
@@ -15,8 +30,12 @@ public class ApiExceptionHandler {
         return error(HttpStatus.NOT_FOUND, exception.getMessage());
     }
 
-    @ExceptionHandler({DuplicateResourceException.class, EligibilityException.class,
-            InvalidStatusTransitionException.class, DataIntegrityViolationException.class})
+    @ExceptionHandler({
+            DuplicateResourceException.class,
+            EligibilityException.class,
+            InvalidStatusTransitionException.class,
+            DataIntegrityViolationException.class
+    })
     @ResponseStatus(HttpStatus.CONFLICT)
     public ApiError handleConflict(Exception exception) {
         String message = exception instanceof PlacementException
@@ -25,7 +44,10 @@ public class ApiExceptionHandler {
         return error(HttpStatus.CONFLICT, message);
     }
 
-    @ExceptionHandler({PlacementException.class, ConstraintViolationException.class})
+    @ExceptionHandler({
+            PlacementException.class,
+            ConstraintViolationException.class
+    })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError handleBadRequest(Exception exception) {
         return error(HttpStatus.BAD_REQUEST, exception.getMessage());
@@ -43,7 +65,8 @@ public class ApiExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiError handleUnreadableBody(HttpMessageNotReadableException exception) {
-        return error(HttpStatus.BAD_REQUEST, "Request body is missing or contains an invalid value.");
+        return error(HttpStatus.BAD_REQUEST,
+                "Request body is missing or contains an invalid value.");
     }
 
     private static String formatFieldError(FieldError error) {
@@ -51,7 +74,11 @@ public class ApiExceptionHandler {
     }
 
     private static ApiError error(HttpStatus status, String message) {
-        return new ApiError(Instant.now(), status.value(), status.getReasonPhrase(), message);
+        return new ApiError(
+                Instant.now(),
+                status.value(),
+                status.getReasonPhrase(),
+                message
+        );
     }
 }
-

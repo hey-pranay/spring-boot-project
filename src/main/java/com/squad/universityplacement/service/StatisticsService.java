@@ -1,14 +1,14 @@
-package com.university.placement.service;
+package com.squad.universityplacement.service;
 
-import com.university.placement.api.CompanyDriveSummary;
-import com.university.placement.api.PlacementStats;
-import com.university.placement.entity.InterviewStatus;
-import com.university.placement.entity.PlacementStatus;
-import com.university.placement.repository.ApplicationRepository;
-import com.university.placement.repository.CompanyDriveSummaryProjection;
-import com.university.placement.repository.CompanyRepository;
-import com.university.placement.repository.OfferAggregateProjection;
-import com.university.placement.repository.StudentRepository;
+import com.squad.universityplacement.api.CompanyDriveSummary;
+import com.squad.universityplacement.api.PlacementStats;
+import com.squad.universityplacement.entity.InterviewStatus;
+import com.squad.universityplacement.entity.PlacementStatus;
+import com.squad.universityplacement.repository.ApplicationRepository;
+import com.squad.universityplacement.repository.CompanyDriveSummaryProjection;
+import com.squad.universityplacement.repository.CompanyRepository;
+import com.squad.universityplacement.repository.OfferAggregateProjection;
+import com.squad.universityplacement.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

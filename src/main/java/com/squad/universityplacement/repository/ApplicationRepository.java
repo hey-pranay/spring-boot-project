@@ -1,7 +1,7 @@
 package com.squad.universityplacement.repository;
 
-import com.university.placement.entity.ApplicationEntity;
-import com.university.placement.entity.InterviewStatus;
+import com.squad.universityplacement.entity.ApplicationEntity;
+import com.squad.universityplacement.entity.InterviewStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -33,12 +33,12 @@ public interface ApplicationRepository extends JpaRepository<ApplicationEntity, 
     @Modifying(clearAutomatically = true, flushAutomatically = true)
     @Query("""
             update ApplicationEntity a
-            set a.interviewStatus = com.university.placement.entity.InterviewStatus.REJECTED
+            set a.interviewStatus = com.squad.universityplacement.entity.InterviewStatus.REJECTED
             where a.student.rollNo = :rollNo
               and a.interviewStatus in (
-                  com.university.placement.entity.InterviewStatus.APPLIED,
-                  com.university.placement.entity.InterviewStatus.SHORTLISTED,
-                  com.university.placement.entity.InterviewStatus.INTERVIEWING
+                  com.squad.universityplacement.entity.InterviewStatus.APPLIED,
+                  com.squad.universityplacement.entity.InterviewStatus.SHORTLISTED,
+                  com.squad.universityplacement.entity.InterviewStatus.INTERVIEWING
               )
               and exists (
                   select c.companyId

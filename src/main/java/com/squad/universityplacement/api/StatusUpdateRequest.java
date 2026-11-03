@@ -1,12 +1,11 @@
 package com.squad.universityplacement.api;
 
-import com.university.placement.entity.InterviewStatus;
+import com.squad.universityplacement.entity.InterviewStatus;
 import jakarta.validation.constraints.NotNull;
-import org.jetbrains.annotations.NotNull;
 
 public class StatusUpdateRequest {
 
-    @org.jetbrains.annotations.NotNull
+    @NotNull
     private InterviewStatus status;
 
     public StatusUpdateRequest() {

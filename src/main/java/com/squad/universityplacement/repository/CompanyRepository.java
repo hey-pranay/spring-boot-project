@@ -1,6 +1,6 @@
 package com.squad.universityplacement.repository;
 
-import com.university.placement.entity.CompanyEntity;
+import com.squad.universityplacement.entity.CompanyEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -27,7 +27,7 @@ public interface CompanyRepository extends JpaRepository<CompanyEntity, Integer>
             select c.name as companyName,
                    c.packageLpa as packageLpa,
                    count(a.appId) as applicants,
-                   sum(case when a.interviewStatus = com.university.placement.entity.InterviewStatus.OFFERED
+                   sum(case when a.interviewStatus = com.squad.universityplacement.entity.InterviewStatus.OFFERED
                        then 1 else 0 end) as offers
             from CompanyEntity c
             left join ApplicationEntity a on a.company = c

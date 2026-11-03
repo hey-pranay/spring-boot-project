@@ -1,10 +1,10 @@
-package com.university.placement.service;
+package com.squad.universityplacement.service;
 
-import com.university.placement.exception.DuplicateResourceException;
-import com.university.placement.exception.ResourceNotFoundException;
-import com.university.placement.exception.ValidationException;
-import com.university.placement.entity.CompanyEntity;
-import com.university.placement.repository.CompanyRepository;
+import com.squad.universityplacement.exception.DuplicateResourceException;
+import com.squad.universityplacement.exception.ResourceNotFoundException;
+import com.squad.universityplacement.exception.ValidationException;
+import com.squad.universityplacement.entity.CompanyEntity;
+import com.squad.universityplacement.repository.CompanyRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

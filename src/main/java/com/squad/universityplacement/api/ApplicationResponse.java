@@ -1,6 +1,6 @@
 package com.squad.universityplacement.api;
 
-import com.university.placement.entity.InterviewStatus;
+import com.squad.universityplacement.entity.InterviewStatus;
 
 public class ApplicationResponse<InterviewStatus> {
 

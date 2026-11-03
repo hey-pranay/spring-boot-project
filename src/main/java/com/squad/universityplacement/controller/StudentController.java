@@ -1,6 +1,12 @@
 package com.squad.universityplacement.controller;
 
+import com.squad.universityplacement.api.StudentRequest;
 import com.squad.universityplacement.entity.StudentEntity;
+import com.squad.universityplacement.service.StudentService;
+
+import jakarta.validation.Valid;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
